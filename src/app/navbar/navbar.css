@@ -1,0 +1,22 @@
+.apel-nav {
+    background: linear-gradient(90deg, #0d6efd, #084298);
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+.navbar-logo {
+    height: 56px;
+    width: auto;
+}
+
+.nav-links {
+    color: rgba(255,255,255,.85) !important;
+    margin-left: .5rem;
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+    transition: background .2s;
+}
+
+.nav-links:hover, .nav-links.active {
+    color: #fff !important;
+    background: rgba(255,255,255,.15);
+}
