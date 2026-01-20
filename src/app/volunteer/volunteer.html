@@ -1,0 +1,14 @@
+<section class="volunteer">
+  <h1 class="text-center">Bénévolat</h1>
+  <p class="subtitle text-center mb-4">
+    Choisissez un besoin et cliquez sur “Je me porte volontaire”.
+  </p>
+
+  <div class="needs">
+    <app-need-card
+      *ngFor="let need of needs"
+      [need]="need"
+      (volunteer)="onVolunteer($event)"
+    ></app-need-card>
+  </div>
+</section>

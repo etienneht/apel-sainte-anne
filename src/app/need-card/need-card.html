@@ -1,1 +1,11 @@
-<p>need-card works!</p>
+<article class="card">
+  <h3>{{ need.title }}</h3>
+  <p class="desc">{{ need.description }}</p>
+
+  <div class="infos">
+    <span>👥 {{ need.requiredVolunteers }} requis</span>
+    <span>🕒 {{ need.startAt }} → {{ need.endAt }}</span>
+  </div>
+
+  <button (click)="onClick()">Je me porte volontaire</button>
+</article>

@@ -1,13 +1,20 @@
 import { Routes } from '@angular/router';
-import { TestComponent } from './test-component/test-component';
 import {HomepageIndex} from './homepage/homepage-index/homepage-index';
+import { Volunteer } from './volunteer/volunteer';
+
+
 
 export const routes: Routes = [
     {
         path:"",
         component:HomepageIndex
     },
-    // Toutes les routes vont ici
+
+    { 
+        path: 'volunteer', 
+        component:Volunteer 
+    },
+
     {
         path:"**",
         redirectTo:""

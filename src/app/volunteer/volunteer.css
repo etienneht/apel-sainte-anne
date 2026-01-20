@@ -1,0 +1,14 @@
+.volunteer {
+  padding: 24px;
+}
+
+.subtitle {
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+.needs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}

@@ -1,1 +1,19 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  /* couleur du logo */
+  --apel-primary: #11b3a9;
+  --apel-secondary: #bb0069;
+
+  /* variantes plus foncées / plus claires pour plus tard */
+  --apel-primary-dark: #0e8f87;
+  --apel-primary-light: #e6f7f6;
+
+  --apel-secondary-dark: #930052;
+  --apel-secondary-light: #fde6f1;
+
+  /* couleurs neutres */
+  --apel-bg: #f8fafc;
+  --apel-text: #0f172a;
+  --apel-white: #ffffff;
+}
