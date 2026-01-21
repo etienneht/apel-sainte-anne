@@ -6,7 +6,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/stage-angular/browser",
+    "public": "dist/apel-ste-anne/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -18,5 +18,8 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
