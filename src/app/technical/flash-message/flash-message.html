@@ -1,0 +1,9 @@
+<div *ngIf="flashMessage as msg"
+     class="alert"
+     [ngClass]="{
+       'alert-success': msg.type === 'success',
+       'alert-danger': msg.type === 'error'
+     }"
+     role="alert">
+  {{ msg.message }}
+</div>

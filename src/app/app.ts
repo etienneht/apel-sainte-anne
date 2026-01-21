@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TestComponent } from './test-component/test-component';
 import { Navbar } from './navbar/navbar';
+import {FlashMessageComponent} from './technical/flash-message/flash-message';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar],
+  imports: [RouterOutlet, Navbar, FlashMessageComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

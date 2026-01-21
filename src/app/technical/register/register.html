@@ -1,0 +1,46 @@
+
+<div class="login-container">
+  <h2>Inscription</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" class="form-control" placeholder="Saisissez votre email">
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+        <div *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis</div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email']">Format d'email invalide</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Saisissez votre mot de passe">
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+        <div *ngIf="registerForm.get('password')?.errors?.['required']">
+          Le mot de passe est requis
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors?.['pattern']">
+          Le mot de passe doit contenir :
+          <ul class="mb-0">
+            <li>8 caractères minimum</li>
+            <li>1 majuscule</li>
+            <li>1 minuscule</li>
+            <li>1 chiffre</li>
+            <li>1 caractère spécial</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="registerForm.invalid || isLoading">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      {{ isLoading ? 'Traitement...' : 'S\'inscrire' }}
+    </button>
+<p>
+  Déjà un compte ?
+  <a [routerLink]="'connexion'">Connectez vous!</a>
+
+</p>
+  </form>
+</div>
