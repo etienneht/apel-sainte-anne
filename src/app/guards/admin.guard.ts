@@ -1,11 +1,10 @@
 // src/app/admin.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { switchMap, map, take } from 'rxjs/operators';
+import {  of } from 'rxjs';
+import {switchMap, map, take, tap} from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
-import { User } from '@angular/fire/auth';
 
 @Injectable({ providedIn: 'root' })
 export class AdminGuard implements CanActivate {
@@ -16,10 +15,10 @@ export class AdminGuard implements CanActivate {
     private router: Router
   ) {}
 
-  canActivate(): Observable<boolean> {
-    return this.authService.getAuthUser().pipe(
+  canActivate() {
+    return this.authService.authUser$.pipe(
       take(1),
-      switchMap((authUser: User | null) => {
+      switchMap(authUser => {
         if (!authUser) {
           this.router.navigate(['/connexion']);
           return of(false);
@@ -27,12 +26,9 @@ export class AdminGuard implements CanActivate {
 
         return this.userService.getUser(authUser.uid).pipe(
           take(1),
-          map(user => {
-            if (!user || user.role !== 'admin') {
-              this.router.navigate(['/']);
-              return false;
-            }
-            return true;
+          map(user => user?.role === 'admin'),
+          tap(isAdmin => {
+            if (!isAdmin) this.router.navigate(['/']);
           })
         );
       })

@@ -27,12 +27,11 @@ export class UserService {
 
   // READ (single)
   getUser(uid: string): Observable<AppUser | null> {
-    return docData(
-      doc(this.firestore, `users/${uid}`)
-    ).pipe(
-      map(user => user ? (user as AppUser) : null)
+    return docData(doc(this.firestore, `users/${uid}`)).pipe(
+      map(user => user ? user as AppUser : null)
     );
   }
+
 
 
 
