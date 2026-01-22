@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import {NgIf} from '@angular/common';
-import {UserService} from '../../services/user.service';
+import {UserService} from '../../../services/user.service';
 import {switchMap, take} from 'rxjs/operators';
 
 @Component({

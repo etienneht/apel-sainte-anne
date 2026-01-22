@@ -1,12 +1,12 @@
 import {Routes} from '@angular/router';
-import {HomepageIndex} from './homepage/homepage-index/homepage-index';
-import {Volunteer} from './volunteer/volunteer';
-import {NotFound} from './technical/not-found/not-found';
-import {AdminIndex} from './admin/index';
-import {LoginComponent} from './technical/login/login';
-import {RegisterComponent} from './technical/register/register';
-import {AuthGuard} from './auth.guard';
-import {AdminGuard} from './admin.guard';
+import {HomepageIndex} from './components/homepage/homepage-index/homepage-index';
+import {Volunteer} from './components/volunteer/volunteer';
+import {NotFound} from './components/technical/not-found/not-found';
+import {AdminIndex} from './components/admin/index';
+import {LoginComponent} from './components/technical/login/login';
+import {RegisterComponent} from './components/technical/register/register';
+import {AuthGuard} from './guards/auth.guard';
+import {AdminGuard} from './guards/admin.guard';
 
 
 export const routes: Routes = [

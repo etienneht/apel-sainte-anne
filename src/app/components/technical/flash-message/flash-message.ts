@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {CommonModule, NgClass} from '@angular/common';
-import {FlashMessage, FlashMessageService} from '../../services/flash-message.service';
+import {FlashMessage, FlashMessageService} from '../../../services/flash-message.service';
 
 @Component({
   selector: 'app-flash-message',

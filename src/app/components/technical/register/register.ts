@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../../services/auth.service';
 import {Router, RouterLink} from '@angular/router';
-import {FlashMessageService} from '../../services/flash-message.service';
+import {FlashMessageService} from '../../../services/flash-message.service';
 import {CommonModule} from '@angular/common';
 
 @Component({
