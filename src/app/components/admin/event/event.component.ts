@@ -67,7 +67,6 @@ export class AdminEventsComponent {
   }
 
 
-
   async onFileSelected(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
 
