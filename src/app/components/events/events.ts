@@ -13,8 +13,8 @@ import {Timestamp} from '@angular/fire/firestore';
     CommonModule,
     NgClass
   ],
-  templateUrl: './events.component.html',
-  styleUrl: './events.component.scss'
+  templateUrl: './events.html',
+  styleUrl: './events.scss'
 })
 export class EventsComponent {
   events: EventData[] = [];

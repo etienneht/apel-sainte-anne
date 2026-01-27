@@ -6,8 +6,8 @@ import {AdminIndex} from './components/admin/index';
 import {LoginComponent} from './components/technical/login/login';
 import {RegisterComponent} from './components/technical/register/register';
 import {AdminGuard} from './guards/admin.guard';
-import {AdminEventsComponent} from './components/admin/event/event.component';
-import {EventsComponent} from './components/events/events.component';
+import {AdminEventsComponent} from './components/admin/event/event';
+import {EventsComponent} from './components/events/events';
 
 
 export const routes: Routes = [

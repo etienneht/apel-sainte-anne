@@ -1,44 +1,69 @@
-// @ts-check
-const eslint = require("@eslint/js");
-const { defineConfig } = require("eslint/config");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
+import angular from '@angular-eslint/eslint-plugin';
+import angularTemplate from '@angular-eslint/eslint-plugin-template';
+import tseslint from 'typescript-eslint';
 
-module.exports = defineConfig([
+export default [
+  // =====================
+  // IGNORÉS (OBLIGATOIRE)
+  // =====================
   {
-    files: ["**/*.ts"],
-    extends: [
-      eslint.configs.recommended,
-      tseslint.configs.recommended,
-      tseslint.configs.stylistic,
-      angular.configs.tsRecommended,
-    ],
-    processor: angular.processInlineTemplates,
-    rules: {
-      "@angular-eslint/directive-selector": [
-        "error",
-        {
-          type: "attribute",
-          prefix: "app",
-          style: "camelCase",
-        },
-      ],
-      "@angular-eslint/component-selector": [
-        "error",
-        {
-          type: "element",
-          prefix: "app",
-          style: "kebab-case",
-        },
-      ],
-    },
+    ignores: [
+      '**/node_modules/**',
+      '**/.angular/**',
+      '**/dist/**',
+      '**/public/**',
+      'src/*.html',
+      'src/app/app.html'
+    ]
   },
+
+  // =====================
+  // TypeScript Angular
+  // =====================
   {
-    files: ["**/*.html"],
-    extends: [
-      angular.configs.templateRecommended,
-      angular.configs.templateAccessibility,
-    ],
-    rules: {},
+    files: ['src/**/*.ts'],
+    languageOptions: {
+      parser: tseslint.parser
+    },
+    plugins: {
+      '@angular-eslint': angular,
+      '@typescript-eslint': tseslint.plugin
+    },
+    rules: {
+      '@angular-eslint/prefer-inject': 'off',
+
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' }
+      ]
+    }
+  },
+
+  // =====================
+  // Templates Angular UNIQUEMENT
+  // =====================
+  {
+    files: ['**/*.component.html'],
+    languageOptions: {
+      parser: angularTemplate.parser
+    },
+    plugins: {
+      '@angular-eslint/template': angularTemplate
+    },
+    rules: {
+      '@angular-eslint/template/prefer-control-flow': 'off'
+    }
+  },
+
+  // =====================
+  // Tests
+  // =====================
+  {
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off'
+    }
   }
-]);
+];

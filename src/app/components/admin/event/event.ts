@@ -17,8 +17,8 @@ import {EventData} from '../../../models/event.model';
 @Component({
   selector: 'app-admin',
   imports: [CommonModule, FormsModule, EditorModule, FlatpickrDirective, RouterLink],
-  templateUrl: './event.component.html',
-  styleUrl: './event.component.scss'
+  templateUrl: './event.html',
+  styleUrl: './event.scss'
 })
 export class AdminEventsComponent {
   events: EventData[] = [];

@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {catchError, from, Observable, throwError} from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -14,7 +14,6 @@ import {
   User
 } from '@angular/fire/auth';
 
-import {UserService} from './user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
