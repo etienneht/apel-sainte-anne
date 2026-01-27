@@ -4,6 +4,7 @@
   "cli": {
     "packageManager": "npm",
     "schematicCollections": [
+      "angular-eslint",
       "@cypress/schematic",
       "@schematics/angular"
     ]
@@ -123,6 +124,15 @@
             "production": {
               "devServerTarget": "apel-ste-anne:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }

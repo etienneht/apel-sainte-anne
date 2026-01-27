@@ -5,7 +5,6 @@ import {NotFound} from './components/technical/not-found/not-found';
 import {AdminIndex} from './components/admin/index';
 import {LoginComponent} from './components/technical/login/login';
 import {RegisterComponent} from './components/technical/register/register';
-import {AuthGuard} from './guards/auth.guard';
 import {AdminGuard} from './guards/admin.guard';
 import {AdminEventsComponent} from './components/admin/event/event.component';
 import {EventsComponent} from './components/events/events.component';
