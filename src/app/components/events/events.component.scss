@@ -1,0 +1,160 @@
+$black-color: #2a1713;
+$white-color: #fdfdfd;
+
+#events {
+  padding: 0 10vw;
+  min-height: 100vh;
+}
+
+#events h1 {
+  font-size: 5rem;
+  text-align: right;
+  padding: 2rem;
+  font-family: 'AR Delaney', sans-serif;
+  text-transform: uppercase;
+}
+
+#events h2 {
+  margin: 2rem auto;
+  font-size: 3rem;
+  font-family: 'AR Delaney', sans-serif;
+  text-transform: uppercase;
+}
+
+/* ========================= */
+/* EVENT CARD */
+/* ========================= */
+
+.event-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 3rem;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &:hover img {
+    opacity: 0.7;
+  }
+}
+
+/* ========================= */
+/* STATUS BADGE */
+/* ========================= */
+
+.status-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: $white-color;
+  z-index: 2;
+
+  &.upcoming {
+    background-color: #6c757d;
+  }
+
+  &.ongoing {
+    background-color: #198754;
+  }
+
+  &.past {
+    background-color: $black-color;
+  }
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.event-content {
+  margin-top: 1rem;
+  text-align: center;
+  color: $white-color;
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+  }
+
+  .date {
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+  .location {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+}
+
+/* ========================= */
+/* LINKS */
+/* ========================= */
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0.8rem;
+
+  a {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: $white-color;
+    padding: 6px 12px;
+    border: 1px solid $white-color;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+
+    &.buy {
+      background-color: $white-color;
+      color: $black-color;
+    }
+
+    &:hover {
+      background-color: $black-color;
+      color: $white-color;
+    }
+  }
+}
+
+/* ========================= */
+/* DETAILS LINK */
+/* ========================= */
+
+a.details {
+  display: inline-block;
+  margin-top: 1rem;
+  color: $white-color;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

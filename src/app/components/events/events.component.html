@@ -1,0 +1,63 @@
+<section id="events">
+  <h1 class="text-center mb-5">Évènements</h1>
+
+  <!-- Loader -->
+  <div *ngIf="isLoading" class="loader-container">
+    <div class="loader"></div>
+    <p>Chargement des évènements...</p>
+  </div>
+
+  <div class="event-cards-container row justify-content-center" *ngIf="!isLoading">
+
+    <div class="event-card col-lg-3 col-md-6 mb-4" *ngFor="let event of events">
+
+      <div class="image-container">
+        <img
+          [src]="event.imageUrl"
+          [alt]="'Affiche de ' + event.title"
+        />
+
+        <!-- Badge statut -->
+        <span
+          class="status-badge"
+          [ngClass]="{
+            'upcoming': event.status === 'A venir',
+            'ongoing': event.status === 'En cours',
+            'past': event.status === 'Passé'
+          }"
+        >
+          {{ event.status }}
+        </span>
+      </div>
+
+      <div class="event-content">
+        <h3>{{ event.title }}</h3>
+
+        <p class="date">
+          {{ event.startDate.toDate() | date:'dd MMM yyyy HH:mm' }}
+        </p>
+
+        <p class="location" *ngIf="event.location">
+          {{ event.location }}
+        </p>
+
+        <!-- Liens optionnels -->
+        <div class="links">
+          <a *ngIf="event.socialLink" [href]="event.socialLink" target="_blank">
+            Réseaux sociaux
+          </a>
+
+          <a *ngIf="event.paymentLink" [href]="event.paymentLink" target="_blank" class="buy">
+            Billetterie
+          </a>
+        </div>
+
+        <!-- Page détail (plus tard) -->
+        <a [routerLink]="['/events', event.id]" class="details">
+          Voir l'évènement
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

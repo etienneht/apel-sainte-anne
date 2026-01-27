@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Navbar } from './components/navbar/navbar';
-import {FlashMessageComponent} from './components/technical/flash-message/flash-message';
+import { Navbar } from './components/partials/navbar/navbar';
+import {FlashMessageComponent} from './components/partials/flash-message/flash-message';
 
 @Component({
   selector: 'app-root',

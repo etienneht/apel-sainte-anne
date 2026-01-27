@@ -1,0 +1,144 @@
+<div [routerLink]="'/admin/'" class="back-btn">
+  <img class="back-btn-img"  src="/images/icons/back-icon.webp" alt="Retour">
+  <p>Retour</p>
+</div>
+<section id="events">
+  <h1>évènements</h1>
+
+  <button *ngIf="!isFormVisible" (click) = "toggleForm()" class="btn btn-primary ms-5 my-3">Ajouter un évènement</button>
+  <button *ngIf="isFormVisible" (click) = "resetForm()" class="btn btn-danger ms-5 my-3">Cacher le formulaire d'ajout</button>
+
+
+  <!-- Formulaire de création ou modification -->
+  <form *ngIf="isFormVisible" (ngSubmit)="onSubmit()" #eventForm="ngForm" id="form" class="event-form">
+    <h2 *ngIf="!isEditing">Ajouter un nouvel évènement</h2>
+    <h2 *ngIf="isEditing">Modifier un évènement</h2>
+
+    <input
+      type="text"
+      placeholder="Titre de l'évènement"
+      [(ngModel)]="event.title"
+      name="title"
+      required
+    />
+<div class="d-flex flex-lg-row justify-content-lg-between align-items-center">
+    <!-- Champs pour les dates -->
+      <input
+        class="form-control me-2"
+        type="text"
+        mwlFlatpickr
+        [(ngModel)]="event.startDate"
+        name="startDate"
+        [altInput]="true"
+        [enableTime]="true"
+        dateFormat="Y-m-d H:i"
+        altFormat="d F Y H:i"
+        placeholder="Date et heure"
+        [options]="flatpickrOptions"
+      />
+
+    <input
+      class="form-control ms-2"
+      type="text"
+      mwlFlatpickr
+      [(ngModel)]="event.endDate"
+      name="endDate"
+      [enableTime]="true"
+      dateFormat="Y-m-d H:i"
+      altFormat="d F Y H:i"
+      placeholder="Date de fin"
+    />
+</div>
+
+    <!-- TinyMCE Editor for Description -->
+    <div class="d-flex flex-column">
+      <label for="description">Description de l'évènement</label>
+      <editor
+        apiKey="637vd5g7tpjr0788n99bu3ukhcg58opyg5vh66vtwznhpof5"
+        id="description"
+        name="description"
+        [(ngModel)]="event.description"
+        placeholder="Description de l'évènement"
+        [init]="editorConfig"
+      ></editor>
+    </div>
+    <input
+      type="text"
+      placeholder="Lieu de l'évènement (optionnel)"
+      [(ngModel)]="event.location"
+      name="location"
+    />
+
+    <input
+      type="url"
+      placeholder="Lien réseau social (optionnel)"
+      [(ngModel)]="event.socialLink"
+      name="socialLink"
+    />
+
+    <input
+      type="url"
+      placeholder="Lien de paiement (optionnel)"
+      [(ngModel)]="event.paymentLink"
+      name="paymentLink"
+    />
+
+    <!-- File Input for Image -->
+    <div class="file-input-container">
+      <label for="file-upload" class="file-label">
+        Choisir une image
+        <input
+          id="file-upload"
+          type="file"
+          (change)="onFileSelected($event)"
+          [required]="!isEditing"
+          class="file-input"
+        />
+      </label>
+    </div>
+
+    <!-- Image Preview -->
+    <div class="image-preview" *ngIf="selectedImage">
+      <img [src]="selectedImage" alt="Prévisualisation de l'image" />
+    </div>
+
+    <button type="submit" [disabled]="eventForm.invalid || isSubmitting || (!isEditing && !selectedFile)">
+      <span *ngIf="isSubmitting">Chargement...</span>
+      <span *ngIf="!isSubmitting">{{ isEditing ? 'Modifier' : 'Ajouter' }}</span>
+    </button>
+    <button type="button" (click)="resetForm()" *ngIf="isFormVisible">Annuler</button>
+  </form>
+
+  <!-- Liste des events -->
+  <!-- Liste des events sous forme de tableau -->
+  <table class="table mx-lg-5">
+    <thead>
+    <tr>
+      <th>Miniature</th>
+      <th>Titre</th>
+      <th>Date et heure</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let event of events">
+      <td>
+        <img [src]="event.imageUrl" alt="Image de l'événement" style="width: 100px; height: auto;" />
+      </td>
+      <td>{{ event.title }}</td>
+      <td>{{ event.startDate.toDate()| date:'dd/MM/yyyy HH:mm' }}</td>
+      <td>
+        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+          <button class="btn btn-primary my-2 me-lg-2" (click)="onEdit(event); isFormVisible = true; scrollToTop()">Modifier</button>
+          <button class="btn btn-danger my-2 mx-lg-2" (click)="onDelete(event)">Supprimer</button>
+          <button class="btn btn-warning my-2 mx-lg-2" (click)="onDuplicate(event)">Dupliquer</button>
+          <a [href]="'/'" class="btn btn-outline-dark my-2 ms-lg-2">Voir</a>
+        </div>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+
+
+</section>
