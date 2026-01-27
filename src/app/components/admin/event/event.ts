@@ -27,8 +27,7 @@ export class AdminEventsComponent {
   optimizedFile: File | null = null; // Fichier optimisé
   isLoading = true;
   isEditing: boolean = false;
-  editingEventId: string | null = null;
-  selectedImage: string | ArrayBuffer | null = null;
+  editingEventId: string | null = null;  selectedImage: string | ArrayBuffer | null = null;
   isFormVisible: boolean = false;
   refresh = new Subject<void>();
   isSubmitting = false;
