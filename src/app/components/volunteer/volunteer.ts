@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NeedCard } from '../need-card/need-card';
 
 @Component({
   selector: 'app-volunteer',
   standalone: true,
-  imports: [CommonModule, NeedCard],
+  imports: [CommonModule, FormsModule],
   templateUrl: './volunteer.html',
-  styleUrl: './volunteer.css',
+  styleUrls: ['./volunteer.scss'], 
 })
 export class Volunteer {
+   search: string = '';
+  selectedEvent: string = 'Tous';
+  sort: string = 'Date';
+
+  // Liste d'événements pour alimenter le <select>
+  events: string[] = ['Tous', 'Kermesse', 'Buvette'];
  // données test pour tester l'affichage
   needs = [
     {
@@ -29,6 +36,12 @@ export class Volunteer {
       endAt: '2026-01-22 11:00',
     },
   ];
+
+  filteredNeeds = this.needs;
+
+  onHelpRequest(formValue: any) {
+    console.log("Demande envoyée (maquette)", formValue);
+  }
 
   onVolunteer(needId: number) {
     alert(`Inscription envoyée pour le besoin #${needId} (pending)`);

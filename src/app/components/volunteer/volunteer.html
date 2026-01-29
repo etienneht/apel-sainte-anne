@@ -1,14 +1,76 @@
-<section class="volunteer">
-  <h1 class="text-center">Bénévolat</h1>
-  <p class="subtitle text-center mb-4">
-    Choisissez un besoin et cliquez sur “Je me porte volontaire”.
-  </p>
+<section class="volunteer-page">
+  <div class="page-container">
 
-  <div class="needs">
-    <app-need-card
-      *ngFor="let need of needs"
-      [need]="need"
-      (volunteer)="onVolunteer($event)"
-    ></app-need-card>
+    <div class="hero">
+      <img class="hero__img" src="benevolat.png" alt="Bénévolat" />
+      <p class="hero__text">
+        Vous êtes content quand vos enfants font des sorties scolaires de qualité à moindre prix ? Si vous voulez que ça continue, venez nous aider dans nos actions ! 
+        Inscrivez-vous ci-dessous pour aider votre école ! 
+      </p>
+    </div>
+
+    <div class="info-banner">
+      Choisissez un besoin de bénévolat et cliquez sur <b>"Je participe"</b>.
+    </div>
+
+    <div class="filters-card">
+      <div class="filters-row">
+        <input class="filter-input" placeholder="Rechercher un besoin..." />
+        <select class="filter-select"><option>Événement : Tous</option></select>
+        <select class="filter-select"><option>Trier : Date</option></select>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div>
+        <!-- tes cards -->
+        <article class="need-card">
+          <div class="need-card__top">
+            <h3>Tenue de stand kermesse</h3>
+            <span class="badge-soft">À venir</span>
+          </div>
+          <p class="muted">Aider à la caisse et au rangement.</p>
+          <div class="need-card__meta">
+            <span>📅 20/01/2026</span>
+            <span>🕒 14:00 - 18:00</span>
+            <span>📍 Cour / Salle</span>
+            <span>👥 Bénévoles requis : 3</span>
+          </div>
+          <button class="btn-join">Je participe</button>
+        </article>
+
+        <article class="need-card">
+          <div class="need-card__top">
+            <h3>Buvette</h3>
+            <span class="badge-pop">Populaire</span>
+          </div>
+          <p class="muted">Description courte du besoin</p>
+          <div class="need-card__meta">
+            <span>📅 24/01/2026</span>
+            <span>🕒 10:00 - 12:00</span>
+            <span>📍 Stand A</span>
+            <span>👥 Bénévoles requis : 4</span>
+          </div>
+          <button class="btn-join">Je participe</button>
+        </article>
+      </div>
+
+      <!-- formulaire à droite -->
+      <aside class="help-box">
+        <h3>Proposer votre aide</h3>
+
+        <div class="help-label">Nom</div>
+        <input class="help-input" placeholder="Votre nom" />
+
+        <div class="help-label">Adresse mail</div>
+        <input class="help-input" placeholder="vous@exemple.fr" />
+
+        <div class="help-label">Message</div>
+        <textarea class="help-textarea" placeholder="Expliquez comment vous pouvez aider..."></textarea>
+
+        <button class="help-btn">Envoyer</button>
+      </aside>
+    </div>
+
   </div>
 </section>
