@@ -11,7 +11,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" class="form-control" placeholder="Saisissez votre email">
+      <input type="email" id="email" data-cy="email-input" formControlName="email" class="form-control" placeholder="Saisissez votre email">
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
         <div *ngIf="loginForm.get('email')?.errors?.['required']">L'email est requis</div>
         <div *ngIf="loginForm.get('email')?.errors?.['email']">Format d'email invalide</div>
@@ -20,14 +20,14 @@
 
     <div class="form-group">
       <label for="password">Mot de passe:</label>
-      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Saisissez votre mot de passe">
+      <input type="password" data-cy="password-input" id="password" formControlName="password" class="form-control" placeholder="Saisissez votre mot de passe">
       <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
         <div *ngIf="loginForm.get('password')?.errors?.['required']">Le mot de passe est requis</div>
         <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Le mot de passe doit faire au moins 6 caractères</div>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3 submit-btn" [disabled]="loginForm.invalid || isLoading">
+    <button type="submit" data-cy="submit-login" class="btn btn-primary mt-3 submit-btn" [disabled]="loginForm.invalid || isLoading">
       <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       {{ isLoading ? 'Traitement...' : 'Connexion' }}
     </button>

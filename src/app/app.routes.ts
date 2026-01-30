@@ -6,8 +6,9 @@ import {NotFound} from './components/technical/not-found/not-found';
 import {AdminIndex} from './components/admin/index';
 import {LoginComponent} from './components/technical/login/login';
 import {RegisterComponent} from './components/technical/register/register';
-import {AuthGuard} from './guards/auth.guard';
 import {AdminGuard} from './guards/admin.guard';
+import {AdminEventsComponent} from './components/admin/event/event';
+import {EventsComponent} from './components/events/events';
 
 
 export const routes: Routes = [
@@ -27,6 +28,15 @@ export const routes: Routes = [
   },
 
   {
+    path: 'evenements',
+    component: EventsComponent
+  },
+  {
+    path: 'events/:id',
+    component: EventsComponent // temporaire
+  },
+
+  {
     path: 'connexion',
     component: LoginComponent
   },
@@ -40,6 +50,12 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminIndex,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: 'admin/evenements',
+    component: AdminEventsComponent,
+    canActivate: [AdminGuard]
   },
 
   {

@@ -6,6 +6,7 @@ import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { routes } from './app.routes';
+import {provideFlatpickrDefaults} from 'angularx-flatpickr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,5 +34,7 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideAnalytics(() => getAnalytics()),
+    provideFlatpickrDefaults(),
+
   ]
 };
